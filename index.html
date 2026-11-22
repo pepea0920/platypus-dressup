@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9d8df">
+  <title>꽃보다 오리너구리</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <img class="room" src="./assets/background.png" alt="">
+    <header class="game-header">
+      <h1><span>꽃보다</span>오리너구리</h1>
+      <div class="wallet" aria-label="보유 코인">
+        <span class="coin" aria-hidden="true">★</span>
+        <span id="coins">0</span>
+        <span class="wallet-star" aria-hidden="true">✦</span>
+      </div>
+    </header>
+
+    <section class="stage" aria-label="현재 코디">
+      <div class="display">
+        <div id="character" class="character" role="img" aria-label="오리너구리"></div>
+        <div id="effects" class="effects" aria-hidden="true"></div>
+        <p id="reaction" class="reaction" hidden></p>
+      </div>
+      <button id="evaluate" class="evaluate primary" type="button"><span aria-hidden="true">★</span> 평가 시작! <span aria-hidden="true">★</span></button>
+    </section>
+
+    <section class="wardrobe" aria-label="옷장">
+      <div class="tabs" role="tablist" aria-label="코디 카테고리">
+        <button type="button" role="tab" id="tab-outfits" data-category="outfits" aria-controls="items" aria-selected="true"><span aria-hidden="true">♧</span> 의상</button>
+        <button type="button" role="tab" id="tab-accessories" data-category="accessories" aria-controls="items" aria-selected="false" tabindex="-1"><span aria-hidden="true">୨୧</span> 액세서리</button>
+        <button type="button" role="tab" id="tab-makeup" data-category="makeup" aria-controls="items" aria-selected="false" tabindex="-1"><span aria-hidden="true">♡</span> 메이크업</button>
+      </div>
+      <div class="card-grid" id="items" role="tabpanel" aria-labelledby="tab-outfits"></div>
+      <div class="wardrobe-ribbon" aria-hidden="true">୨୧</div>
+    </section>
+
+    <p id="asset-warning" class="notice" role="status" hidden></p>
+    <p id="storage-warning" class="notice" role="status" hidden></p>
+    <p id="announcement" class="sr-only" role="status"></p>
+  </main>
+
+  <dialog id="preview" aria-labelledby="preview-name">
+    <button class="close" type="button" data-close aria-label="미리보기 닫기">×</button>
+    <h2 id="preview-name"></h2>
+    <div id="preview-character" class="character preview-character" role="img" aria-label="오리너구리 착용 미리보기"></div>
+    <div class="purchase-details">
+      <p>가격 <strong>500코인</strong></p>
+      <p>보유 코인 <strong id="preview-coins"></strong></p>
+    </div>
+    <p id="purchase-message" role="status"></p>
+    <div class="actions">
+      <button id="buy" class="primary" type="button">해금하기</button>
+      <button class="secondary" type="button" data-close autofocus>취소</button>
+    </div>
+  </dialog>
+
+  <dialog id="results" aria-labelledby="result-title">
+    <button class="close" type="button" data-close aria-label="평가 결과 닫기" hidden>×</button>
+    <h2 id="result-title">코디 평가 중</h2>
+    <div id="result-character" class="character result-character" role="img" aria-label="평가받는 오리너구리"></div>
+    <div id="result-score" class="score" aria-hidden="true">0점</div>
+    <div id="stars" class="stars" aria-label="별점 집계 중"></div>
+    <p id="review" class="review"></p>
+    <p id="reward" class="reward" role="status"></p>
+    <button id="confirm" class="primary" type="button" data-close disabled>확인</button>
+  </dialog>
+</body>
+</html>
